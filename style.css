@@ -3163,3 +3163,14 @@ html{scroll-padding-top:145px}
 
 /* Product category announcement sits immediately below the fixed header. */
 .product-page>.announcement.dark{position:relative;z-index:1}
+
+
+/* Fixed navigation repair: hero styling and reliable stacking across sections */
+body.ay-home{padding-top:0}
+.ay-home .header{top:31px;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+.ay-home .header.is-scrolled{top:0;background:rgba(248,241,235,.97);box-shadow:0 4px 22px rgba(56,61,69,.09);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.ay-home .header-spacer{height:126px}
+.product-page .header{z-index:1000;position:fixed;top:0;background:rgba(248,241,235,.97)}
+@media(max-width:900px){.ay-home .header-spacer{height:95px}}
+@media(max-width:600px){.ay-home .header-spacer{height:82px}}
+@media(prefers-reduced-motion:reduce){.ay-home .header{transition:none}}
