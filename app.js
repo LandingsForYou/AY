@@ -265,3 +265,12 @@ const AY_ORDER_ENDPOINT = ""; // Example: https://your-domain.example/api/order 
   });
   update();
 })();
+
+
+// Preserve the original transparent hero header, then add contrast while scrolling.
+const siteHeader = document.querySelector(".ay-home > .header");
+if (siteHeader) {
+  const syncHeader = () => siteHeader.classList.toggle("is-scrolled", window.scrollY > 31);
+  window.addEventListener("scroll", syncHeader, { passive: true });
+  syncHeader();
+}
