@@ -250,3 +250,19 @@ const AY_ORDER_ENDPOINT = ""; // Example: https://your-domain.example/api/order 
   });
   update();
 })();
+
+
+// Catalog category filters: keep all products in the document for accessibility and SEO.
+(() => {
+  const filters = [...document.querySelectorAll('[data-product-filter]')];
+  const cards = [...document.querySelectorAll('[data-product-group]')];
+  filters.forEach(button => button.addEventListener('click', () => {
+    const selected = button.dataset.productFilter;
+    filters.forEach(item => {
+      const active = item === button;
+      item.classList.toggle('is-active', active);
+      item.setAttribute('aria-pressed', String(active));
+    });
+    cards.forEach(card => { card.hidden = selected !== 'all' && card.dataset.productGroup !== selected; });
+  }));
+})();
