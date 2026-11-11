@@ -2777,7 +2777,21 @@ body.ay-modal-open {
   padding: 15px 23px;
 }
 .gift-certificates__details {
+  position: relative;
+  isolation: isolate;
   padding-block: 70px 85px;
+}
+.gift-certificates__details::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: #f8f1eb url("img/about-side-art.webp") right top / cover no-repeat;
+  pointer-events: none;
 }
 .gift-certificates__intro {
   display: grid;
