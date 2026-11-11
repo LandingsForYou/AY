@@ -3224,3 +3224,8 @@ body.ay-home{padding-top:0}
 @media(max-width:900px){.ay-reviews__heading{align-items:flex-start;flex-direction:column}.ay-reviews__nav{width:100%;justify-content:flex-end}.ay-reviews__phone{flex-basis:270px}}
 @media(max-width:600px){.ay-reviews__phone{flex-basis:260px}.ay-reviews__heading h2{font-size:43px}.ay-reviews__nav{gap:12px}.ay-reviews__progress{width:65px}.ay-reviews__track{margin-right:-14px;padding-right:14px}}
 @media(prefers-reduced-motion:reduce){.ay-reviews__track{scroll-behavior:auto}.ay-reviews__progress-fill{transition:none}}
+
+
+/* A subtle echo of the homepage hero inside each iPhone message screen. */
+.ay-reviews__chat-body{position:relative;isolation:isolate;background:#eee6de}
+.ay-reviews__chat-body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(rgba(246,241,235,.86),rgba(246,241,235,.89)),url("img/hero.webp") center/cover no-repeat}
