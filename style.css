@@ -3144,3 +3144,19 @@ body.ay-modal-open {
 @media(max-width:760px){.ay-site-footer__top{grid-template-columns:1fr;gap:44px}.ay-site-footer__identity p{margin-top:18px}.ay-site-footer__intro h2{font-size:clamp(43px,9vw,66px)}.ay-site-footer__columns{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:42px}.ay-site-footer__column:last-child{grid-column:1/-1}.ay-site-footer__bottom{justify-content:flex-start;min-height:0;gap:12px 26px}}
 @media(max-width:420px){.ay-site-footer__columns{grid-template-columns:1fr;gap:38px}.ay-site-footer__column:last-child{grid-column:auto}.ay-site-footer .ay-site-footer__cta{width:100%;max-width:none;min-width:0}.ay-site-footer__bottom{flex-direction:column;align-items:flex-start}}
 @media(prefers-reduced-motion:reduce){.ay-site-footer__column a{transition:none}}
+
+
+/* Shared fixed navigation and Telegram contact shortcut */
+body{padding-top:126px}
+.header{position:fixed;top:0;left:0;right:0;width:100%;z-index:1000;background:rgba(248,241,235,.97);box-shadow:0 4px 22px rgba(56,61,69,.07);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+html{scroll-padding-top:145px}
+.ay-floating-contact{position:fixed;right:clamp(18px,3vw,48px);bottom:clamp(18px,3vw,42px);z-index:900;display:inline-flex;align-items:center;justify-content:space-between;gap:22px;padding:15px 21px;min-height:54px;border-radius:50px;background:linear-gradient(100deg,#c8a18b,#e8d3c2);box-shadow:0 10px 32px rgba(56,61,69,.24);color:#383d45;font-size:13px;font-weight:600;transition:transform .25s ease,box-shadow .25s ease}
+.ay-floating-contact:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(56,61,69,.3)}
+.ay-floating-contact svg{width:29px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:1}
+.ay-floating-contact:focus-visible{outline:2px solid #383d45;outline-offset:4px}
+.ay-site-footer__social-icons{display:flex;align-items:center;gap:12px;margin-top:8px;flex-wrap:wrap}
+.ay-site-footer__social-icons a{display:grid;place-items:center;width:42px;height:42px;border:1px solid rgba(248,241,235,.28);border-radius:50%;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.ay-site-footer__social-icons a:hover{background:rgba(248,241,235,.12);border-color:#d3ad98;transform:translateY(-2px)}
+.ay-site-footer__social-icons img{display:block;width:20px;height:20px;filter:brightness(0) invert(1)}
+@media(max-width:600px){body{padding-top:82px}html{scroll-padding-top:98px}.ay-floating-contact{right:14px;bottom:max(14px,env(safe-area-inset-bottom));min-height:48px;padding:12px 17px;font-size:12px;gap:15px}.ay-floating-contact svg{width:24px}}
+@media(prefers-reduced-motion:reduce){.ay-floating-contact,.ay-site-footer__social-icons a{transition:none}}
