@@ -3174,3 +3174,15 @@ body.ay-home{padding-top:0}
 @media(max-width:900px){.ay-home .header-spacer{height:95px}}
 @media(max-width:600px){.ay-home .header-spacer{height:82px}}
 @media(prefers-reduced-motion:reduce){.ay-home .header{transition:none}}
+
+/* Compact desktop navigation after scrolling — all AY pages */
+@media(min-width:901px){
+  .header{transition:height .3s ease,top .3s ease,background .3s ease,box-shadow .3s ease}
+  .header .brand,.header .brand img{transition:width .3s ease,height .3s ease}
+  .header.is-scrolled{height:76px}
+  .header.is-scrolled .brand{width:125px}
+  .header.is-scrolled .brand img{height:72px}
+}
+@media(prefers-reduced-motion:reduce){
+  .header,.header .brand,.header .brand img{transition:none}
+}
