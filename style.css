@@ -2777,7 +2777,21 @@ body.ay-modal-open {
   padding: 15px 23px;
 }
 .gift-certificates__details {
+  position: relative;
+  isolation: isolate;
   padding-block: 70px 85px;
+}
+.gift-certificates__details::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: #f8f1eb url("img/about-side-art.webp") right top / cover no-repeat;
+  pointer-events: none;
 }
 .gift-certificates__intro {
   display: grid;
@@ -3104,4 +3118,150 @@ body.ay-modal-open {
   #fabrics .fabrics__track > .fabric-card {flex-basis:100%;width:100%}
   #fabrics .fabrics__footer {margin-top:22px;gap:10px}
   #fabrics .fabrics__footer .catalog__status {gap:12px}
+}
+
+
+/* Shared AY footer — homepage and all product detail pages */
+.ay-site-footer{background:#383d45;color:#f8f1eb;padding:clamp(62px,7vw,112px) 0 0}
+.ay-site-footer a{color:inherit;text-decoration:none}
+.ay-site-footer__top{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(35px,7vw,110px);align-items:start;padding-bottom:clamp(55px,7vw,110px)}
+.ay-site-footer__logo{display:inline-block;width:clamp(150px,17vw,240px)}
+.ay-site-footer__logo img{width:100%;height:auto;display:block}
+.ay-site-footer__identity p{font:italic 400 clamp(24px,2.7vw,38px)/1.35 var(--font-heading);color:#d6c8c0;margin:32px 0 0}
+.ay-site-footer__eyebrow{font-size:11px;letter-spacing:.2em;color:#cdb5a6}
+.ay-site-footer__intro h2{font:400 clamp(43px,5.7vw,85px)/1.08 var(--font-heading);letter-spacing:-.035em;margin:20px 0 36px}
+.ay-site-footer__intro h2 em{color:#d3ad98;font-weight:400}
+.ay-site-footer .ay-site-footer__cta{margin:0;min-width:285px;max-width:360px;color:#383d45}
+.ay-site-footer__columns{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:clamp(25px,4vw,70px);padding:clamp(35px,5vw,70px) 0;border-top:1px solid rgba(248,241,235,.2);border-bottom:1px solid rgba(248,241,235,.2)}
+.ay-site-footer__column{display:flex;flex-direction:column;align-items:flex-start;gap:15px}
+.ay-site-footer__column h3{font:500 11px/1.4 var(--font-body);letter-spacing:.18em;color:#c9b3a7;margin:0 0 12px}
+.ay-site-footer__column a{display:inline-flex;align-items:center;gap:11px;font-size:13px;line-height:1.6;transition:color .2s ease}
+.ay-site-footer__column a:hover,.ay-site-footer__bottom a:hover{color:#d3ad98}
+.ay-site-footer__column svg,.ay-site-footer__bottom svg{width:24px;height:13px;stroke:currentColor;stroke-width:1;fill:none}
+.ay-site-footer__bottom{display:flex;justify-content:space-between;align-items:center;gap:25px;flex-wrap:wrap;min-height:94px;padding:22px 0;color:#c2c4c7;font-size:11px;letter-spacing:.025em}
+.ay-site-footer__bottom a{display:inline-flex;align-items:center;gap:12px;color:#f8f1eb}
+.ay-site-footer__bottom a svg{transform:rotate(-90deg)}
+@media(max-width:760px){.ay-site-footer__top{grid-template-columns:1fr;gap:44px}.ay-site-footer__identity p{margin-top:18px}.ay-site-footer__intro h2{font-size:clamp(43px,9vw,66px)}.ay-site-footer__columns{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:42px}.ay-site-footer__column:last-child{grid-column:1/-1}.ay-site-footer__bottom{justify-content:flex-start;min-height:0;gap:12px 26px}}
+@media(max-width:420px){.ay-site-footer__columns{grid-template-columns:1fr;gap:38px}.ay-site-footer__column:last-child{grid-column:auto}.ay-site-footer .ay-site-footer__cta{width:100%;max-width:none;min-width:0}.ay-site-footer__bottom{flex-direction:column;align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){.ay-site-footer__column a{transition:none}}
+
+
+/* Shared fixed navigation and Telegram contact shortcut */
+body{padding-top:126px}
+.header{position:fixed;top:0;left:0;right:0;width:100%;z-index:1000;background:rgba(248,241,235,.97);box-shadow:0 4px 22px rgba(56,61,69,.07);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+html{scroll-padding-top:145px}
+.ay-floating-contact{position:fixed;right:clamp(18px,3vw,48px);bottom:clamp(18px,3vw,42px);z-index:900;display:inline-flex;align-items:center;justify-content:space-between;gap:22px;padding:15px 21px;min-height:54px;border-radius:50px;background:linear-gradient(100deg,#c8a18b,#e8d3c2);box-shadow:0 10px 32px rgba(56,61,69,.24);color:#383d45;font-size:13px;font-weight:600;transition:transform .25s ease,box-shadow .25s ease}
+.ay-floating-contact:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(56,61,69,.3)}
+.ay-floating-contact svg{width:29px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:1}
+.ay-floating-contact:focus-visible{outline:2px solid #383d45;outline-offset:4px}
+.ay-site-footer__social-icons{display:flex;align-items:center;gap:12px;margin-top:8px;flex-wrap:wrap}
+.ay-site-footer__social-icons a{display:grid;place-items:center;width:42px;height:42px;border:1px solid rgba(248,241,235,.28);border-radius:50%;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.ay-site-footer__social-icons a:hover{background:rgba(248,241,235,.12);border-color:#d3ad98;transform:translateY(-2px)}
+.ay-site-footer__social-icons img{display:block;width:20px;height:20px;filter:brightness(0) invert(1)}
+@media(max-width:600px){body{padding-top:82px}html{scroll-padding-top:98px}.ay-floating-contact{right:14px;bottom:max(14px,env(safe-area-inset-bottom));min-height:48px;padding:12px 17px;font-size:12px;gap:15px}.ay-floating-contact svg{width:24px}}
+@media(prefers-reduced-motion:reduce){.ay-floating-contact,.ay-site-footer__social-icons a{transition:none}}
+
+/* Product category announcement sits immediately below the fixed header. */
+.product-page>.announcement.dark{position:relative;z-index:1}
+
+
+/* Fixed navigation repair: hero styling and reliable stacking across sections */
+body.ay-home{padding-top:0}
+.ay-home .header{top:31px;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+.ay-home .header.is-scrolled{top:0;background:rgba(248,241,235,.97);box-shadow:0 4px 22px rgba(56,61,69,.09);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.ay-home .header-spacer{height:126px}
+.product-page .header{z-index:1000;position:fixed;top:0;background:rgba(248,241,235,.97)}
+@media(max-width:900px){.ay-home .header-spacer{height:95px}}
+@media(max-width:600px){.ay-home .header-spacer{height:82px}}
+@media(prefers-reduced-motion:reduce){.ay-home .header{transition:none}}
+
+/* Compact desktop navigation after scrolling — all AY pages */
+@media(min-width:901px){
+  .header{transition:height .3s ease,top .3s ease,background .3s ease,box-shadow .3s ease}
+  .header .brand,.header .brand img{transition:width .3s ease,height .3s ease}
+  .header.is-scrolled{height:76px}
+  .header.is-scrolled .brand{width:125px}
+  .header.is-scrolled .brand img{height:72px}
+}
+@media(prefers-reduced-motion:reduce){
+  .header,.header .brand,.header .brand img{transition:none}
+}
+
+
+/* iPhone-inspired testimonial carousel; demo copy until customer-approved reviews arrive */
+.ay-reviews{padding:clamp(76px,9vw,140px) 0;background:#f8f1eb;overflow:hidden}
+.ay-reviews__heading{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:clamp(35px,5vw,68px)}
+.ay-reviews__heading h2{font:400 clamp(43px,5vw,75px)/1.12 var(--font-heading);letter-spacing:-.03em;margin:20px 0 14px}
+.ay-reviews__heading h2 em{color:#b58b73;font-weight:400}
+.ay-reviews__heading p{font-size:14px;color:#77706a;margin:0}
+.ay-reviews__nav{display:flex;align-items:center;gap:22px;flex-shrink:0}
+.ay-reviews__counter{font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.ay-reviews__progress{display:block;width:100px;height:1px;background:#d7c6ba}
+.ay-reviews__progress-fill{display:block;height:100%;width:10%;background:#76645a;transition:width .25s ease}
+.ay-reviews__nav .catalog__controls{gap:12px}
+.ay-reviews__track{display:flex;gap:clamp(18px,2.7vw,42px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain;padding:12px 4px 22px}
+.ay-reviews__track::-webkit-scrollbar{display:none}
+.ay-reviews__phone{flex:0 0 clamp(245px,25vw,315px);scroll-snap-align:start;min-width:0}
+.ay-reviews__device{position:relative;background:#383d45;padding:9px;border-radius:43px;aspect-ratio: .51;box-shadow:0 18px 36px rgba(56,61,69,.16),inset 0 0 0 2px #666d76}
+.ay-reviews__device:before{content:"";position:absolute;left:-3px;top:105px;width:3px;height:48px;border-radius:3px 0 0 3px;background:#383d45}
+.ay-reviews__screen{height:100%;border-radius:35px;background:#f6f1eb;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.ay-reviews__status{height:39px;display:flex;justify-content:space-between;align-items:center;padding:0 27px;font:600 11px var(--font-body);color:#383d45}
+.ay-reviews__island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:73px;height:20px;border-radius:20px;background:#383d45}
+.ay-reviews__chat-head{display:flex;align-items:center;gap:10px;padding:13px 12px;background:#fff;border-bottom:1px solid #ece3db}
+.ay-reviews__back{font-size:29px;color:#b58b73;line-height:1}
+.ay-reviews__avatar{width:36px;height:36px;display:grid;place-items:center;background:#e8d3c2;border-radius:50%;font-size:18px;color:#6d5a4c}
+.ay-reviews__chat-head strong{display:block;font-size:12px;font-weight:600}
+.ay-reviews__chat-head small{display:block;font-size:9px;color:#8a817b;margin-top:3px}
+.ay-reviews__chat-body{flex:1;display:flex;flex-direction:column;align-items:center;padding:25px 13px;background:linear-gradient(145deg,#f6f1eb,#eae0d8)}
+.ay-reviews__day{font-size:9px;letter-spacing:.08em;color:#8b817a;margin-bottom:26px}
+.ay-reviews__bubble{align-self:flex-start;max-width:96%;padding:15px 15px 10px;border-radius:4px 17px 17px 17px;background:#fff;box-shadow:0 2px 9px rgba(56,61,69,.06)}
+.ay-reviews__bubble p{font-size:clamp(11px,1vw,13px);line-height:1.75;margin:0;color:#383d45}
+.ay-reviews__time{display:block;text-align:right;font-size:9px;color:#a49a93;margin-top:8px}
+.ay-reviews__chat-bottom{height:53px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;background:#fff;color:#a89e97;font-size:11px}
+.ay-reviews__chat-bottom span:first-child{border:1px solid #e5dcd4;border-radius:30px;padding:8px 14px;flex:1;margin-right:12px}
+.ay-reviews__label{text-align:center;font-size:12px;color:#77706a;margin:19px 0 0}
+.ay-reviews__disclaimer{font-size:11px;color:#857a73;margin:25px 0 0;line-height:1.6}
+@media(max-width:900px){.ay-reviews__heading{align-items:flex-start;flex-direction:column}.ay-reviews__nav{width:100%;justify-content:flex-end}.ay-reviews__phone{flex-basis:270px}}
+@media(max-width:600px){.ay-reviews__phone{flex-basis:260px}.ay-reviews__heading h2{font-size:43px}.ay-reviews__nav{gap:12px}.ay-reviews__progress{width:65px}.ay-reviews__track{margin-right:-14px;padding-right:14px}}
+@media(prefers-reduced-motion:reduce){.ay-reviews__track{scroll-behavior:auto}.ay-reviews__progress-fill{transition:none}}
+
+
+/* A subtle echo of the homepage hero inside each iPhone message screen. */
+.ay-reviews__chat-body{position:relative;isolation:isolate;background:#eee6de}
+.ay-reviews__chat-body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(rgba(246,241,235,.86),rgba(246,241,235,.89)),url("img/hero.webp") center/cover no-repeat}
+
+
+/* Full-width carousel navigation below the iPhone frames */
+.ay-reviews__heading{margin-bottom:clamp(35px,5vw,68px)}
+.ay-reviews__nav{width:100%;justify-content:space-between;align-items:center;margin-top:25px;gap:20px}
+.ay-reviews__counter{margin-right:auto}
+.ay-reviews__progress{width:clamp(90px,18vw,210px)}
+.ay-reviews__nav .catalog__controls{margin-left:auto}
+.ay-reviews__track{padding-bottom:16px}
+@media(max-width:900px){.ay-reviews__nav{justify-content:space-between}}
+@media(max-width:600px){.ay-reviews__nav{gap:12px;margin-top:18px}.ay-reviews__progress{width:clamp(45px,15vw,90px)}}
+
+
+/* Reviews polish: flat iPhone frames and complete cards on desktop */
+.ay-reviews__device{box-shadow:none}
+@media(min-width:901px){
+  .ay-reviews__track{--reviews-gap:clamp(18px,2.7vw,42px);gap:var(--reviews-gap);padding:12px 0 16px;scroll-padding-inline:0}
+  .ay-reviews__phone{flex:0 0 calc((100% - 2 * var(--reviews-gap))/3)}
+}
+
+
+/* Four complete, compact iPhones per desktop carousel viewport */
+@media(min-width:901px){
+  .ay-reviews__track{--reviews-gap:clamp(14px,2vw,28px);gap:var(--reviews-gap)}
+  .ay-reviews__phone{flex:0 0 calc((100% - 3 * var(--reviews-gap))/4)}
+  .ay-reviews__device{width:100%;margin-inline:auto;aspect-ratio:.55;border-radius:34px;padding:7px}
+  .ay-reviews__screen{border-radius:28px}
+  .ay-reviews__status{height:31px}
+  .ay-reviews__island{top:9px;width:60px;height:16px}
+  .ay-reviews__chat-head{padding:9px 10px}
+  .ay-reviews__chat-body{padding:15px 10px}
+  .ay-reviews__day{margin-bottom:14px}
+  .ay-reviews__bubble{padding:10px 11px 7px}
+  .ay-reviews__bubble p{font-size:12px;line-height:1.65}
+  .ay-reviews__chat-bottom{height:41px}
 }

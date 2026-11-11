@@ -115,6 +115,7 @@ const AY_ORDER_ENDPOINT = ""; // Example: https://your-domain.example/api/order 
   const orderDialog = document.querySelector('#order-forms');
   let orderTrigger = null;
   document.querySelectorAll('[data-order-kind]').forEach(link => link.addEventListener('click', event => {
+    if (link.getAttribute('href') !== '#order-forms') return;
     event.preventDefault();
     const kind = link.dataset.orderKind;
     activate(kind);
@@ -130,6 +131,20 @@ const AY_ORDER_ENDPOINT = ""; // Example: https://your-domain.example/api/order 
     if (!orderDialog.open) orderDialog.showModal();
     document.body.classList.add('ay-modal-open');
   }));
+  // Open the existing order dialog when returning from a product detail page.
+  const productParams = new URLSearchParams(window.location.search);
+  const requestedKind = productParams.get('order');
+  const requestedProduct = productParams.get('product');
+  if (requestedKind === 'product' || requestedKind === 'gift') {
+    const target = [...document.querySelectorAll('[data-order-kind]')].find(link =>
+      link.dataset.orderKind === requestedKind &&
+      (!requestedProduct || link.dataset.orderProduct === requestedProduct)
+    );
+    if (target) {
+      target.click();
+      window.history.replaceState(null, '', window.location.pathname + window.location.hash);
+    }
+  }
   orderDialog.querySelector('[data-order-close]').addEventListener('click', () => orderDialog.close());
   orderDialog.addEventListener('click', event => { if (event.target === orderDialog) orderDialog.close(); });
   orderDialog.addEventListener('close', () => { document.body.classList.remove('ay-modal-open'); orderTrigger?.focus(); });
@@ -250,3 +265,50 @@ const AY_ORDER_ENDPOINT = ""; // Example: https://your-domain.example/api/order 
   });
   update();
 })();
+
+
+// Preserve the original transparent hero header, then add contrast while scrolling.
+const siteHeader = document.querySelector(".ay-home > .header");
+if (siteHeader) {
+  const syncHeader = () => siteHeader.classList.toggle("is-scrolled", window.scrollY > 31);
+  window.addEventListener("scroll", syncHeader, { passive: true });
+  syncHeader();
+}
+
+
+// Reviews: same arrow, progress and counter interaction as the catalog carousel.
+const reviewsTrack = document.querySelector("#ay-reviews-track");
+if (reviewsTrack) {
+  const items = [...reviewsTrack.querySelectorAll(".ay-reviews__phone")];
+  const previous = document.querySelector(".ay-reviews__prev");
+  const next = document.querySelector(".ay-reviews__next");
+  const counter = document.querySelector(".ay-reviews__counter");
+  const progress = document.querySelector(".ay-reviews__progress-fill");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const indexOfVisible = () => {
+    const offset = reviewsTrack.scrollLeft;
+    return items.reduce((best, item, i) =>
+      Math.abs(item.offsetLeft - items[0].offsetLeft - offset) <
+      Math.abs(items[best].offsetLeft - items[0].offsetLeft - offset) ? i : best, 0);
+  };
+  const updateReviews = () => {
+    const index = indexOfVisible();
+    previous.disabled = index === 0;
+    next.disabled = reviewsTrack.scrollLeft + reviewsTrack.clientWidth >= reviewsTrack.scrollWidth - 3;
+    counter.textContent = `${String(index + 1).padStart(2, "0")} / ${String(items.length).padStart(2, "0")}`;
+    progress.style.width = `${((index + 1) / items.length) * 100}%`;
+  };
+  const moveReviews = step => {
+    const index = Math.max(0, Math.min(items.length - 1, indexOfVisible() + step));
+    reviewsTrack.scrollTo({ left: items[index].offsetLeft - items[0].offsetLeft, behavior: reducedMotion.matches ? "instant" : "smooth" });
+  };
+  previous.addEventListener("click", () => moveReviews(-1));
+  next.addEventListener("click", () => moveReviews(1));
+  reviewsTrack.addEventListener("scroll", updateReviews, { passive: true });
+  window.addEventListener("resize", updateReviews);
+  reviewsTrack.addEventListener("keydown", event => {
+    if (event.key === "ArrowRight") { event.preventDefault(); moveReviews(1); }
+    if (event.key === "ArrowLeft") { event.preventDefault(); moveReviews(-1); }
+  });
+  updateReviews();
+}
