@@ -115,6 +115,7 @@ const AY_ORDER_ENDPOINT = ""; // Example: https://your-domain.example/api/order 
   const orderDialog = document.querySelector('#order-forms');
   let orderTrigger = null;
   document.querySelectorAll('[data-order-kind]').forEach(link => link.addEventListener('click', event => {
+    if (link.getAttribute('href') !== '#order-forms') return;
     event.preventDefault();
     const kind = link.dataset.orderKind;
     activate(kind);
