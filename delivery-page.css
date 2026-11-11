@@ -42,3 +42,20 @@
 .delivery-page .delivery-hero h1 em{display:block;color:var(--accent);font-weight:400;white-space:nowrap}
 .delivery-page .delivery-hero .text{margin:28px 0 0;max-width:90%;font-size:clamp(17px,1.35vw,20px);line-height:1.62;letter-spacing:-.025em;color:var(--ink)}
 @media(max-width:650px){.delivery-page .delivery-hero{min-height:calc(100svh - 82px)}.delivery-page .delivery-hero .hero__copy{margin-inline:clamp(20px,6vw,30px);padding:55px 0 85px}.delivery-page .delivery-hero h1{font-size:clamp(56px,11vw,75px)}.delivery-page .delivery-hero h1 em{white-space:normal}.delivery-page .delivery-hero::after{background:linear-gradient(90deg,rgba(250,244,238,.9),rgba(250,244,238,.65) 65%,rgba(250,244,238,.25))}}
+
+
+/* Reuse the soft illustrated backdrop from the gift certificate details section */
+.delivery-page .delivery-details{position:relative;isolation:isolate;background:#f8f1eb}
+.delivery-page .delivery-details::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:#f8f1eb url("img/about-side-art.webp") right top/cover no-repeat}
+
+/* Mobile hero: editorial composition rather than a full-height empty panel */
+@media(max-width:650px){
+  .delivery-page .delivery-hero{min-height:0;display:block}
+  .delivery-page .delivery-hero .hero__copy{margin-inline:clamp(20px,6vw,30px);padding:58px 0 68px;max-width:420px}
+  .delivery-page .delivery-hero h1{font-size:clamp(48px,11vw,64px);line-height:1.09}
+  .delivery-page .delivery-hero .text{font-size:15px;line-height:1.65;max-width:340px;margin-top:20px}
+  .delivery-page .delivery-hero .hero__cta{margin-top:27px}
+  .delivery-page .delivery-hero::before{background-position:60% center}
+  .delivery-page .delivery-hero::after{background:linear-gradient(90deg,rgba(250,244,238,.92),rgba(250,244,238,.75) 70%,rgba(250,244,238,.46))}
+  .delivery-page .delivery-details::before{background-position:65% top}
+}
