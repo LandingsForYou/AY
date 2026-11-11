@@ -3229,3 +3229,14 @@ body.ay-home{padding-top:0}
 /* A subtle echo of the homepage hero inside each iPhone message screen. */
 .ay-reviews__chat-body{position:relative;isolation:isolate;background:#eee6de}
 .ay-reviews__chat-body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(rgba(246,241,235,.86),rgba(246,241,235,.89)),url("img/hero.webp") center/cover no-repeat}
+
+
+/* Full-width carousel navigation below the iPhone frames */
+.ay-reviews__heading{margin-bottom:clamp(35px,5vw,68px)}
+.ay-reviews__nav{width:100%;justify-content:space-between;align-items:center;margin-top:25px;gap:20px}
+.ay-reviews__counter{margin-right:auto}
+.ay-reviews__progress{width:clamp(90px,18vw,210px)}
+.ay-reviews__nav .catalog__controls{margin-left:auto}
+.ay-reviews__track{padding-bottom:16px}
+@media(max-width:900px){.ay-reviews__nav{justify-content:space-between}}
+@media(max-width:600px){.ay-reviews__nav{gap:12px;margin-top:18px}.ay-reviews__progress{width:clamp(45px,15vw,90px)}}
