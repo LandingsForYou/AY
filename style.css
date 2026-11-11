@@ -3186,3 +3186,41 @@ body.ay-home{padding-top:0}
 @media(prefers-reduced-motion:reduce){
   .header,.header .brand,.header .brand img{transition:none}
 }
+
+
+/* iPhone-inspired testimonial carousel; demo copy until customer-approved reviews arrive */
+.ay-reviews{padding:clamp(76px,9vw,140px) 0;background:#f8f1eb;overflow:hidden}
+.ay-reviews__heading{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:clamp(35px,5vw,68px)}
+.ay-reviews__heading h2{font:400 clamp(43px,5vw,75px)/1.12 var(--font-heading);letter-spacing:-.03em;margin:20px 0 14px}
+.ay-reviews__heading h2 em{color:#b58b73;font-weight:400}
+.ay-reviews__heading p{font-size:14px;color:#77706a;margin:0}
+.ay-reviews__nav{display:flex;align-items:center;gap:22px;flex-shrink:0}
+.ay-reviews__counter{font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.ay-reviews__progress{display:block;width:100px;height:1px;background:#d7c6ba}
+.ay-reviews__progress-fill{display:block;height:100%;width:10%;background:#76645a;transition:width .25s ease}
+.ay-reviews__nav .catalog__controls{gap:12px}
+.ay-reviews__track{display:flex;gap:clamp(18px,2.7vw,42px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain;padding:12px 4px 22px}
+.ay-reviews__track::-webkit-scrollbar{display:none}
+.ay-reviews__phone{flex:0 0 clamp(245px,25vw,315px);scroll-snap-align:start;min-width:0}
+.ay-reviews__device{position:relative;background:#383d45;padding:9px;border-radius:43px;aspect-ratio: .51;box-shadow:0 18px 36px rgba(56,61,69,.16),inset 0 0 0 2px #666d76}
+.ay-reviews__device:before{content:"";position:absolute;left:-3px;top:105px;width:3px;height:48px;border-radius:3px 0 0 3px;background:#383d45}
+.ay-reviews__screen{height:100%;border-radius:35px;background:#f6f1eb;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.ay-reviews__status{height:39px;display:flex;justify-content:space-between;align-items:center;padding:0 27px;font:600 11px var(--font-body);color:#383d45}
+.ay-reviews__island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:73px;height:20px;border-radius:20px;background:#383d45}
+.ay-reviews__chat-head{display:flex;align-items:center;gap:10px;padding:13px 12px;background:#fff;border-bottom:1px solid #ece3db}
+.ay-reviews__back{font-size:29px;color:#b58b73;line-height:1}
+.ay-reviews__avatar{width:36px;height:36px;display:grid;place-items:center;background:#e8d3c2;border-radius:50%;font-size:18px;color:#6d5a4c}
+.ay-reviews__chat-head strong{display:block;font-size:12px;font-weight:600}
+.ay-reviews__chat-head small{display:block;font-size:9px;color:#8a817b;margin-top:3px}
+.ay-reviews__chat-body{flex:1;display:flex;flex-direction:column;align-items:center;padding:25px 13px;background:linear-gradient(145deg,#f6f1eb,#eae0d8)}
+.ay-reviews__day{font-size:9px;letter-spacing:.08em;color:#8b817a;margin-bottom:26px}
+.ay-reviews__bubble{align-self:flex-start;max-width:96%;padding:15px 15px 10px;border-radius:4px 17px 17px 17px;background:#fff;box-shadow:0 2px 9px rgba(56,61,69,.06)}
+.ay-reviews__bubble p{font-size:clamp(11px,1vw,13px);line-height:1.75;margin:0;color:#383d45}
+.ay-reviews__time{display:block;text-align:right;font-size:9px;color:#a49a93;margin-top:8px}
+.ay-reviews__chat-bottom{height:53px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;background:#fff;color:#a89e97;font-size:11px}
+.ay-reviews__chat-bottom span:first-child{border:1px solid #e5dcd4;border-radius:30px;padding:8px 14px;flex:1;margin-right:12px}
+.ay-reviews__label{text-align:center;font-size:12px;color:#77706a;margin:19px 0 0}
+.ay-reviews__disclaimer{font-size:11px;color:#857a73;margin:25px 0 0;line-height:1.6}
+@media(max-width:900px){.ay-reviews__heading{align-items:flex-start;flex-direction:column}.ay-reviews__nav{width:100%;justify-content:flex-end}.ay-reviews__phone{flex-basis:270px}}
+@media(max-width:600px){.ay-reviews__phone{flex-basis:260px}.ay-reviews__heading h2{font-size:43px}.ay-reviews__nav{gap:12px}.ay-reviews__progress{width:65px}.ay-reviews__track{margin-right:-14px;padding-right:14px}}
+@media(prefers-reduced-motion:reduce){.ay-reviews__track{scroll-behavior:auto}.ay-reviews__progress-fill{transition:none}}
