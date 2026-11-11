@@ -3254,7 +3254,7 @@ body.ay-home{padding-top:0}
 @media(min-width:901px){
   .ay-reviews__track{--reviews-gap:clamp(14px,2vw,28px);gap:var(--reviews-gap)}
   .ay-reviews__phone{flex:0 0 calc((100% - 3 * var(--reviews-gap))/4)}
-  .ay-reviews__device{width:min(100%,210px);margin-inline:auto;aspect-ratio:.59;border-radius:34px;padding:7px}
+  .ay-reviews__device{width:100%;margin-inline:auto;aspect-ratio:.55;border-radius:34px;padding:7px}
   .ay-reviews__screen{border-radius:28px}
   .ay-reviews__status{height:31px}
   .ay-reviews__island{top:9px;width:60px;height:16px}
@@ -3262,6 +3262,6 @@ body.ay-home{padding-top:0}
   .ay-reviews__chat-body{padding:15px 10px}
   .ay-reviews__day{margin-bottom:14px}
   .ay-reviews__bubble{padding:10px 11px 7px}
-  .ay-reviews__bubble p{font-size:11px;line-height:1.55}
+  .ay-reviews__bubble p{font-size:12px;line-height:1.65}
   .ay-reviews__chat-bottom{height:41px}
 }
