@@ -33,3 +33,12 @@ if (menuToggle && navigation) {
   navigation.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
   document.addEventListener("keydown", event => { if (event.key === "Escape") closeMenu(); });
 }
+
+
+// Match the homepage's compact fixed header on product pages.
+const productHeader = document.querySelector(".product-page > .header");
+if (productHeader) {
+  const syncProductHeader = () => productHeader.classList.toggle("is-scrolled", window.scrollY > 31);
+  window.addEventListener("scroll", syncProductHeader, { passive: true });
+  syncProductHeader();
+}
