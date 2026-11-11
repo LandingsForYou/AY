@@ -130,6 +130,20 @@ const AY_ORDER_ENDPOINT = ""; // Example: https://your-domain.example/api/order 
     if (!orderDialog.open) orderDialog.showModal();
     document.body.classList.add('ay-modal-open');
   }));
+  // Open the existing order dialog when returning from a product detail page.
+  const productParams = new URLSearchParams(window.location.search);
+  const requestedKind = productParams.get('order');
+  const requestedProduct = productParams.get('product');
+  if (requestedKind === 'product' || requestedKind === 'gift') {
+    const target = [...document.querySelectorAll('[data-order-kind]')].find(link =>
+      link.dataset.orderKind === requestedKind &&
+      (!requestedProduct || link.dataset.orderProduct === requestedProduct)
+    );
+    if (target) {
+      target.click();
+      window.history.replaceState(null, '', window.location.pathname + window.location.hash);
+    }
+  }
   orderDialog.querySelector('[data-order-close]').addEventListener('click', () => orderDialog.close());
   orderDialog.addEventListener('click', event => { if (event.target === orderDialog) orderDialog.close(); });
   orderDialog.addEventListener('close', () => { document.body.classList.remove('ay-modal-open'); orderTrigger?.focus(); });
