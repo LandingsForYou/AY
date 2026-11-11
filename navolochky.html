@@ -14,13 +14,89 @@
   <script src="product-pages.js" defer></script>
 </head>
 <body class="product-page">
-  <header class="product-page__header">
-    <div class="section-container product-page__header-inner">
-      <a href="index.html#top" class="product-page__brand" aria-label="AY — на головну"><img src="img/ay-logo.png" alt="AY Bedding &amp; Home Textile"></a>
-      <nav class="product-page__nav" aria-label="Навігація"><a href="index.html#catalog">Каталог</a><a href="index.html#fabrics">Наші тканини</a><a href="index.html#about">Про бренд</a></nav>
-      <a href="index.html#catalog" class="product-page__back">До каталогу <svg aria-hidden="true" viewBox="0 0 42 16"><path d="M0 8h40m-7-7 7 7-7 7"></path></svg></a>
-    </div>
-  </header>
+  <header class="header">
+        <a aria-label="AY — головна" class="brand" href="index.html#top"
+          ><img alt="AY Bedding &amp; Home Textile" src="img/ay-logo.png"
+        /></a>
+        <nav aria-label="Головне меню" class="nav" id="navigation">
+          <a href="index.html#catalog">Каталог</a>
+          <a href="index.html#about">Про бренд</a>
+          <a href="index.html#delivery">Доставка та оплата</a>
+          <a href="index.html#reviews">Відгуки</a><a href="index.html#contacts">Контакти</a>
+        </nav>
+        <div class="header__actions">
+          <a
+            aria-label="Telegram"
+            class="social"
+            href="https://t.me/VlasenkoY"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Telegram"
+          >
+            <img
+              alt=""
+              height="22"
+              src="https://cdn.simpleicons.org/telegram/443c36"
+              width="22"
+            />
+          </a>
+          <a
+            aria-label="Instagram"
+            class="social"
+            href="https://www.instagram.com/yuliacherinko?xtok=eWp1N2R5c3A3ZTVr&amp;utm_source=qr"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Instagram"
+          >
+            <img
+              alt=""
+              height="22"
+              src="https://cdn.simpleicons.org/instagram/443c36"
+              width="22"
+            />
+          </a>
+          <a
+            aria-label="Viber"
+            class="social"
+            href="https://invite.viber.com/?g2=AQB8ViwcGOTUfEqqKTa7Y7T2V3Z0dx4HR%2Bm8NESxy2WEQT2Y2yiO1yLuAZ8WGfyS"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Viber"
+          >
+            <img
+              alt=""
+              height="22"
+              src="https://cdn.simpleicons.org/viber/443c36"
+              width="22"
+            />
+          </a>
+          <a
+            aria-label="Facebook"
+            class="social"
+            href="https://www.facebook.com/groups/874316336049632?locale=uk_UA"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Facebook"
+          >
+            <img
+              alt=""
+              height="22"
+              src="https://cdn.simpleicons.org/facebook/443c36"
+              width="22"
+            />
+          </a>
+          <button
+            aria-controls="navigation"
+            aria-expanded="false"
+            aria-label="Відкрити меню"
+            class="menu-toggle"
+            type="button"
+          >
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
   <main>
     <section class="product-page__hero section-container" aria-labelledby="product-title">
       <div class="product-page__gallery">
@@ -34,7 +110,6 @@
       </div>
       <div class="product-page__details">
         <div class="eyebrow"><i></i><span>AY / КАТАЛОГ</span><i></i></div>
-        <p class="product-page__index">КАТЕГОРІЯ 06 / 07</p>
         <h1 id="product-title">Наволочки</h1>
         <p class="product-page__lead">Маленькі деталі великого комфорту</p>
         <p class="product-page__intro">Наволочки у потрібному розмірі, кольорі та кількості.</p>
@@ -44,7 +119,7 @@
         <div class="product-page__label">МОЖЛИВОСТІ ЗАМОВЛЕННЯ</div>
         <ul class="product-page__features"><li>Розмір відповідно до подушки</li><li>Замовлення потрібної кількості</li><li>Вибір тканини та кольору</li></ul>
         <div class="product-page__price"><span>ВАРТІСТЬ</span><strong>Розраховується індивідуально</strong><p>Ціна залежить від обраних параметрів. Підтвердимо суму та терміни до оформлення замовлення.</p></div>
-        <a class="hero__cta product-page__cta" href="index.html?order=product&product=%D0%9D%D0%B0%D0%B2%D0%BE%D0%BB%D0%BE%D1%87%D0%BA%D0%B8"><span>Замовити / дізнатися вартість</span><svg aria-hidden="true" viewBox="0 0 42 16"><path d="M0 8h40m-7-7 7 7-7 7"></path></svg></a>
+        <a class="hero__cta product-page__cta" href="https://t.me/VlasenkoY" target="_blank" rel="noopener noreferrer"><span>Замовити / дізнатися вартість</span><svg aria-hidden="true" viewBox="0 0 42 16"><path d="M0 8h40m-7-7 7 7-7 7"></path></svg></a>
         <a class="product-page__help" href="index.html#fabrics">Допомога з вибором тканини <svg aria-hidden="true" viewBox="0 0 42 16"><path d="M0 8h40m-7-7 7 7-7 7"></path></svg></a>
       </div>
     </section>
