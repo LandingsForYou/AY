@@ -33,3 +33,17 @@
 .product-page .header{background:#f8f1eb;border-bottom:1px solid #e7d9cf}
 .product-page__details .product-page__cta{display:flex;margin-left:auto;margin-right:auto}
 .product-page__details .product-page__help{display:flex;width:max-content;max-width:100%;margin-left:auto;margin-right:auto}
+
+/* Mobile gallery: clean photos, no decorative shadows or image filters. */
+@media(max-width:650px){
+  .product-page__main-photo,
+  .product-page__main-photo img,
+  .product-page__thumb,
+  .product-page__thumb img,
+  .product-page__related-grid .catalog-card,
+  .product-page__related-grid .catalog-card img{
+    box-shadow:none;
+    filter:none;
+  }
+  .product-page__thumb.is-active{border-color:var(--button-blue)}
+}
