@@ -3268,7 +3268,7 @@ body.ay-home{padding-top:0}
 
 
 /* AY refresh: clearer blue interactive accents without changing the layout. */
-:root{--button-blue:#76a9c8;--button-blue-hover:#5b94b8;--button-ink:#17384e}
+:root{--button-blue:#40566b;--button-blue-hover:#304456;--button-ink:#ffffff}
 .hero__cta,
 .care-banner .hero__cta,
 .ay-form-submit,
