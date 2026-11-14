@@ -3265,3 +3265,49 @@ body.ay-home{padding-top:0}
   .ay-reviews__bubble p{font-size:12px;line-height:1.65}
   .ay-reviews__chat-bottom{height:41px}
 }
+
+
+/* AY refresh: clearer blue interactive accents without changing the layout. */
+:root{--button-blue:#76a9c8;--button-blue-hover:#5b94b8;--button-ink:#17384e}
+.hero__cta,
+.care-banner .hero__cta,
+.ay-form-submit,
+.founder__cta,
+.ay-floating-contact{
+  background:var(--button-blue);
+  color:var(--button-ink);
+}
+.hero__cta:hover,
+.ay-form-submit:hover,
+.founder__cta:hover,
+.ay-floating-contact:hover{
+  background:var(--button-blue-hover);
+  color:#fff;
+}
+.catalog__arrow,
+.catalog__controls .catalog__arrow{
+  background:var(--button-blue);
+  border-color:var(--button-blue);
+  color:var(--button-ink);
+}
+.catalog__controls .catalog__arrow:hover:not(:disabled),
+.catalog__arrow:hover:not(:disabled){
+  background:var(--button-blue-hover);
+  border-color:var(--button-blue-hover);
+  color:#fff;
+}
+.ay-site-footer .ay-site-footer__cta{color:var(--button-ink)}
+.ay-site-footer .ay-site-footer__cta:hover{color:#fff}
+@media(max-width:600px){
+  /* Reveal the actual photograph instead of a heavy cream/dark overlay. */
+  .first-screen .hero::after{
+    background:linear-gradient(180deg,rgba(248,241,235,.85) 0%,rgba(248,241,235,.66) 23%,rgba(248,241,235,.18) 43%,transparent 57%);
+  }
+  .catalog-card,
+  .catalog-card img,
+  .fabric-card__visual,
+  .fabric-card__visual img,
+  .product-page__related-grid .catalog-card,
+  .ay-reviews__device{box-shadow:none}
+  .catalog-card img,.fabric-card__visual img{filter:none}
+}
