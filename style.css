@@ -3311,3 +3311,54 @@ body.ay-home{padding-top:0}
   .ay-reviews__device{box-shadow:none}
   .catalog-card img,.fabric-card__visual img{filter:none}
 }
+
+/* Homepage mobile hero: readable editorial copy and an unobstructed product photo. */
+@media (max-width: 600px) {
+  .ay-home .first-screen .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100svh - 112px);
+    padding-bottom: 0;
+    background: var(--paper);
+  }
+  .ay-home .first-screen .hero::before {
+    inset: auto 0 0;
+    height: clamp(260px, 43svh, 470px);
+    background: url("img/hero.webp") 67% center / cover no-repeat;
+  }
+  .ay-home .first-screen .hero::after {
+    display: none;
+  }
+  .ay-home .first-screen .hero__copy {
+    flex: 0 0 auto;
+    width: 100%;
+    margin: 0 0 clamp(260px, 43svh, 470px);
+    padding: 24px 20px 30px;
+    background: var(--paper);
+    text-align: center;
+  }
+  .ay-home .first-screen .hero h1 {
+    color: #293b4d;
+    font-size: clamp(42px, 11vw, 57px);
+    line-height: 1.06;
+  }
+  .ay-home .first-screen .hero h1 em {
+    color: #526c81;
+  }
+  .ay-home .first-screen .hero .text {
+    color: #353d42;
+    font-size: clamp(14px, 3.8vw, 17px);
+    line-height: 1.5;
+    margin-top: 15px;
+  }
+  .ay-home .first-screen .hero .eyebrow {
+    color: #40566b;
+    margin-bottom: 15px;
+  }
+  .ay-home .first-screen .hero .eyebrow i {
+    background: #40566b;
+  }
+  .ay-home .first-screen .hero__cta {
+    margin-top: 18px;
+  }
+}
