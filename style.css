@@ -3322,9 +3322,11 @@ body.ay-home{padding-top:0}
     background: var(--paper);
   }
   .ay-home .first-screen .hero::before {
-    inset: auto 0 0;
-    height: clamp(260px, 43svh, 470px);
+    inset: 0 0 auto;
+    height: clamp(260px, 42svh, 440px);
     background: url("img/hero.webp") 67% center / cover no-repeat;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 68%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 68%, transparent 100%);
   }
   .ay-home .first-screen .hero::after {
     display: none;
@@ -3332,9 +3334,9 @@ body.ay-home{padding-top:0}
   .ay-home .first-screen .hero__copy {
     flex: 0 0 auto;
     width: 100%;
-    margin: 0 0 clamp(260px, 43svh, 470px);
-    padding: 24px 20px 30px;
-    background: var(--paper);
+    margin: 0;
+    padding: calc(clamp(260px, 42svh, 440px) + 8px) 20px 34px;
+    background: transparent;
     text-align: center;
   }
   .ay-home .first-screen .hero h1 {
