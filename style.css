@@ -3274,25 +3274,25 @@ body.ay-home{padding-top:0}
 .ay-form-submit,
 .founder__cta,
 .ay-floating-contact{
-  background:var(--button-blue);
+  background:linear-gradient(110deg,#293b4d 0%,#40566b 52%,#6d8091 100%);
   color:var(--button-ink);
 }
 .hero__cta:hover,
 .ay-form-submit:hover,
 .founder__cta:hover,
 .ay-floating-contact:hover{
-  background:var(--button-blue-hover);
+  background:linear-gradient(110deg,#354d63 0%,#536d83 55%,#8194a4 100%);
   color:#fff;
 }
 .catalog__arrow,
 .catalog__controls .catalog__arrow{
-  background:var(--button-blue);
+  background:linear-gradient(110deg,#293b4d 0%,#40566b 52%,#6d8091 100%);
   border-color:var(--button-blue);
   color:var(--button-ink);
 }
 .catalog__controls .catalog__arrow:hover:not(:disabled),
 .catalog__arrow:hover:not(:disabled){
-  background:var(--button-blue-hover);
+  background:linear-gradient(110deg,#354d63 0%,#536d83 55%,#8194a4 100%);
   border-color:var(--button-blue-hover);
   color:#fff;
 }
