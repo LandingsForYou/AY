@@ -59,3 +59,10 @@
   .delivery-page .delivery-hero::after{background:linear-gradient(90deg,rgba(250,244,238,.92),rgba(250,244,238,.75) 70%,rgba(250,244,238,.46))}
   .delivery-page .delivery-details::before{background-position:65% top}
 }
+
+/* Mobile delivery hero: lighter overlay, no dark veil over the photograph. */
+@media(max-width:650px){
+  .delivery-page .delivery-hero::after{
+    background:linear-gradient(180deg,rgba(248,241,235,.85),rgba(248,241,235,.62) 35%,rgba(248,241,235,.12) 63%,transparent 85%);
+  }
+}
