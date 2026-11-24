@@ -286,29 +286,44 @@ if (reviewsTrack) {
   const progress = document.querySelector(".ay-reviews__progress-fill");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const indexOfVisible = () => {
-    const offset = reviewsTrack.scrollLeft;
+    const offset = reviewsTrack.scrollLeft + reviewsTrack.clientWidth / 2;
     return items.reduce((best, item, i) =>
-      Math.abs(item.offsetLeft - items[0].offsetLeft - offset) <
-      Math.abs(items[best].offsetLeft - items[0].offsetLeft - offset) ? i : best, 0);
+      Math.abs(item.offsetLeft + item.offsetWidth / 2 - offset) <
+      Math.abs(items[best].offsetLeft + items[best].offsetWidth / 2 - offset) ? i : best, 0);
   };
   const updateReviews = () => {
     const index = indexOfVisible();
+    items.forEach((item, i) => {
+      item.classList.toggle("is-review-active", i === index);
+      item.classList.toggle("is-review-neighbor", Math.abs(i - index) === 1);
+    });
     previous.disabled = index === 0;
-    next.disabled = reviewsTrack.scrollLeft + reviewsTrack.clientWidth >= reviewsTrack.scrollWidth - 3;
+    next.disabled = index === items.length - 1;
     counter.textContent = `${String(index + 1).padStart(2, "0")} / ${String(items.length).padStart(2, "0")}`;
     progress.style.width = `${((index + 1) / items.length) * 100}%`;
   };
   const moveReviews = step => {
     const index = Math.max(0, Math.min(items.length - 1, indexOfVisible() + step));
-    reviewsTrack.scrollTo({ left: items[index].offsetLeft - items[0].offsetLeft, behavior: reducedMotion.matches ? "instant" : "smooth" });
+    reviewsTrack.scrollTo({ left: items[index].offsetLeft + items[index].offsetWidth / 2 - reviewsTrack.clientWidth / 2, behavior: reducedMotion.matches ? "instant" : "smooth" });
   };
   previous.addEventListener("click", () => moveReviews(-1));
   next.addEventListener("click", () => moveReviews(1));
   reviewsTrack.addEventListener("scroll", updateReviews, { passive: true });
-  window.addEventListener("resize", updateReviews);
+  const centerReview = index => {
+    const width = reviewsTrack.clientWidth;
+    if (!width) return;
+    const phone = Math.min(width * (window.innerWidth <= 767 ? .68 : .32), 300);
+    reviewsTrack.style.setProperty("--review-width", `${phone}px`);
+    reviewsTrack.style.setProperty("--review-edge", `${(width - phone) / 2}px`);
+    reviewsTrack.scrollTo({left: items[index].offsetLeft + items[index].offsetWidth / 2 - width / 2, behavior: "instant"});
+    updateReviews();
+  };
+  window.addEventListener("resize", () => centerReview(items.findIndex(item => item.classList.contains("is-review-active")) < 0 ? 1 : items.findIndex(item => item.classList.contains("is-review-active"))));
   reviewsTrack.addEventListener("keydown", event => {
     if (event.key === "ArrowRight") { event.preventDefault(); moveReviews(1); }
     if (event.key === "ArrowLeft") { event.preventDefault(); moveReviews(-1); }
   });
-  updateReviews();
+  reviewsTrack.classList.add("is-review-ready");
+  centerReview(Math.min(1, items.length - 1));
+  window.addEventListener("load", () => centerReview(Math.min(1, items.length - 1)), {once:true});
 }
